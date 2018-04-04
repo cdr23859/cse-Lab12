@@ -1,10 +1,11 @@
 package unl.cse.recursion;
 
 import java.math.BigInteger;
+import java.util.HashMap;
 
 public class PellNumbers {
-
 	private static final BigInteger TWO = new BigInteger("2");
+	public static HashMap<Integer, BigInteger> map = new HashMap<Integer, BigInteger>();
 
 	public static BigInteger PellNumber(Integer n) {
 		if(n == 0) {
@@ -14,14 +15,17 @@ public class PellNumbers {
 		} else {
 			BigInteger a = PellNumber(n-1);
 			BigInteger b = PellNumber(n-2);
-			return a.multiply(TWO).add(b);
+
+			// Calculates result for n
+			BigInteger result = a.multiply(TWO).add(b);
+
+			return result;
 		}
 	}
 	
 	public static void main(String args[]) {
-		
 		int n = 9;
 		BigInteger p_n = PellNumber(n);
-		System.out.println("p("+n+") = "+p_n.toString());
+		System.out.println("p(" + n + ") = " + p_n.toString());
 	}
 }
